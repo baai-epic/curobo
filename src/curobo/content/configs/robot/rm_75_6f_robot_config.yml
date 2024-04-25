@@ -1,0 +1,126 @@
+robot_cfg:
+  kinematics:
+    use_usd_kinematics: False
+    usd_path: "robot/rm_75_6f/rm_75_6f.usd"
+    usd_robot_root: "/rm_75_6f_description"
+    usd_flip_joints: {"joint1": "Z", "joint2": "Z", "joint3": "Z", "joint4": "Z", "joint5": "Z", "joint6": "Z", "joint7": "Z"}
+    isaac_usd_path: ""
+    usd_flip_joint_limits: []
+
+    urdf_path: "robot/rm_75_6f/rm_75_6f.urdf"
+    asset_root_path: "robot/rm_75_6f"
+
+    base_link: "base_link"
+    ee_link: "Link7"
+    link_names: null
+    lock_joints: null
+    extra_links: null
+
+
+    collision_link_names: ["base_link", "Link1", "Link2", "Link3", "Link4", "Link5", "Link6", "Link7"]
+    collision_spheres:
+      base_link:
+      - "center": [0.0, 0.0, 0.096]
+        "radius": 0.06
+      - "center": [0.0, 0.0, 0.026]
+        "radius": 0.06
+      Link1:
+      - "center": [0.0, 0.0, 0.0]
+        "radius": 0.04
+      - "center": [0.0, 0.0, -0.037]
+        "radius": 0.04
+      - "center": [0.0, 0.02, -0.035]
+        "radius": 0.03
+      - "center": [0.0, 0.085, -0.015]
+        "radius": 0.03
+      - "center": [0.0, 0.042, -0.028]
+        "radius": 0.03
+      - "center": [0.0, 0.064, -0.021]
+        "radius": 0.03
+      - "center": [0.0, 0.089, 0.021]
+        "radius": 0.02
+      - "center": [-0.02, 0.089, 0.007]
+        "radius": 0.02
+      - "center": [0.02, 0.089, 0.007]
+        "radius": 0.02
+      Link2:
+      - "center": [0.0, 0.031, 0.0]
+        "radius": 0.024
+      - "center": [0.0, 0.008, 0.091]
+        "radius": 0.024
+      - "center": [0.0, 0.023, 0.03]
+        "radius": 0.024
+      - "center": [0.0, 0.016, 0.061]
+        "radius": 0.024
+      - "center": [0.0, 0.0, 0.106]
+        "radius": 0.04
+      - "center": [0.0, 0.0, 0.131]
+        "radius": 0.04
+      Link3:
+      - "center": [0.0, 0.0, -0.034]
+        "radius": 0.043
+      - "center": [0.0, 0.031, -0.031]
+        "radius": 0.035
+      - "center": [-0.006, 0.073, -0.017]
+        "radius": 0.03
+      - "center": [0.012, 0.076, -0.011]
+        "radius": 0.027
+      - "center": [-0.0, -0.0, -0.014]
+        "radius": 0.04
+      - "center": [-0.0, 0.088, 0.013]
+        "radius": 0.02
+      Link4:
+      - "center": [0.001, -0.0, 0.08]
+        "radius": 0.038
+      - "center": [-0.001, 0.001, 0.091]
+        "radius": 0.038
+      - "center": [0.001, 0.02, 0.049]
+        "radius": 0.024
+      - "center": [-0.0, -0.0, 0.103]
+        "radius": 0.04
+      - "center": [-0.0, 0.021, -0.0]
+        "radius": 0.03
+      Link5:
+      - "center": [-0.001, 0.006, -0.025]
+        "radius": 0.037
+      - "center": [-0.001, 0.043, -0.022]
+        "radius": 0.027
+      - "center": [-0.0, -0.002, -0.018]
+        "radius": 0.036
+      - "center": [-0.004, 0.057, -0.014]
+        "radius": 0.025
+      - "center": [0.002, 0.026, -0.026]
+        "radius": 0.031
+      - "center": [0.0, 0.076, 0.0]
+        "radius": 0.03
+      Link6:
+      - "center": [-0.0, 0.023, 0.029]
+        "radius": 0.019
+      - "center": [-0.002, -0.0, 0.085]
+        "radius": 0.036
+      - "center": [0.0, 0.01, 0.054]
+        "radius": 0.02
+      - "center": [-0.0, 0.015, -0.0]
+        "radius": 0.03
+      - "center": [0.0, -0.0, 0.073]
+        "radius": 0.03
+      Link7:
+      - "center": [-0.0, 0.0, -0.021]
+        "radius": 0.03
+      - "center": [0.0, 0.0, -0.039]
+        "radius": 0.03
+    collision_sphere_buffer: -0.005
+    extra_collision_spheres: {}
+    self_collision_ignore: {"base_link": ["Link1", "Link2"], "Link1": ["Link2", "Link3", "Link4"], "Link2": ["Link3", "Link4"], "Link3": ["Link4", "Link6"], "Link4": ["Link5", "Link6", "Link7"], "Link5": ["Link6", "Link7"], "Link6": ["Link7"]}
+    self_collision_buffer: {'base_link': 0, 'Link1': 0, 'Link2': 0, 'Link3': 0, 'Link4': 0, 'Link5': 0, 'Link6': 0, 'Link7': 0}
+
+    use_global_cumul: True
+    mesh_link_names: ["base_link", "Link1", "Link2", "Link3", "Link4", "Link5", "Link6", "Link7"]
+
+    cspace:
+      joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6", "joint7"]
+      retract_config: [0.0, -1.3, 0.0, -1, 0.0, 1.0, 0.]
+      null_space_weight: [1, 1, 1, 1, 1, 1, 1]
+      cspace_distance_weight: [1, 1, 1, 1, 1, 1, 1]
+      max_jerk: 500.0
+      max_acceleration: 15.0

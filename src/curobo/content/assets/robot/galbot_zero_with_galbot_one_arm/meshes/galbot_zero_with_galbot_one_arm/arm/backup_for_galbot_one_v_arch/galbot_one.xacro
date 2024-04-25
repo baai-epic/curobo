@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!-- 
+#####################################################################################
+#
+# Copyright (c) 2023-2024 Galbot, Inc. All Rights Reserved.
+#
+# This software contains confidential and proprietary information of Galbot, Inc.
+# ("Confidential Information"). You shall not disclose such Confidential Information
+# and shall use it only in accordance with the terms of the license agreement you
+# entered into with Galbot, Inc.
+#
+# UNAUTHORIZED COPYING, USE, OR DISTRIBUTION OF THIS SOFTWARE, OR ANY PORTION OR
+# DERIVATIVE THEREOF, IS STRICTLY PROHIBITED. IF YOU HAVE RECEIVED THIS SOFTWARE IN
+# ERROR, PLEASE NOTIFY GALBOT, INC. IMMEDIATELY AND DELETE IT FROM YOUR SYSTEM.
+#
+#####################################################################################
+#
+# Description: Xacro file for Galbot One
+# Author: Herman Ye@Galbot
+#
+#####################################################################################
+-->
+
+<robot name="galbot_one" xmlns:xacro="http://ros.org/wiki/xacro">
+    <!-- INCLUDE-->
+    <xacro:include filename='$(find galbot_description)/urdf/galbot_one/chassis/omni_chassis.xacro' />
+    <xacro:include filename='$(find galbot_description)/urdf/galbot_one/leg/leg.xacro' />
+    <xacro:include filename='$(find galbot_description)/urdf/galbot_one/torso/torso.xacro' />
+    <xacro:include filename='$(find galbot_description)/urdf/galbot_one/head/head.xacro' />
+    <xacro:include filename='$(find galbot_description)/urdf/galbot_one/arm/left_arm.xacro' />
+    <xacro:include filename='$(find galbot_description)/urdf/galbot_one/arm/right_arm.xacro' />
+    <xacro:include
+        filename='$(find galbot_description)/urdf/galbot_one/gripper/gripper_inspire.xacro' />
+    <xacro:include
+        filename='$(find galbot_description)/urdf/galbot_one/suction_cup/suction_cup.xacro' />
+    <!-- PROPERTIES -->
+    <xacro:property name="PI" value="3.1415926535897931" />
+
+    <!-- ROBOT -->
+    <!-- Robot Base Link -->
+    <link name="robot_base_link" />
+
+    <!-- Omni Chassis -->
+    <xacro:omni_chassis parent="robot_base_link" name="omni_chassis">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:omni_chassis>
+
+    <!-- Leg -->
+    <xacro:leg parent="omni_chassis_leg_mount_link" name="leg">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:leg>
+
+    <!-- Torso -->
+    <xacro:torso parent="leg_torso_mount_link" name="torso">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:torso>
+
+    <!-- Head -->
+    <xacro:head parent="torso_head_mount_link" name="head">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:head>
+
+    <!-- Left Arm-->
+    <xacro:left_arm parent="torso_left_arm_mount_link" name="left_arm">
+        <origin xyz="0 0 0" rpy="${-PI} 0 ${PI/2}" />
+    </xacro:left_arm>
+    <!-- Left Arm Flange: TODO@Herman Ye -->
+    <!-- Gripper Flange: TODO@Herman Ye -->
+
+    <!-- Gripper Inspire-->
+    <xacro:gripper_inspire parent="left_arm_end_effector_mount_link">
+        <origin xyz="0 0.012 0" rpy="${-PI/2} 0 0" />
+    </xacro:gripper_inspire>
+
+    <!-- Right Arm-->
+    <xacro:right_arm parent="torso_right_arm_mount_link" name="right_arm">
+        <origin xyz="0 0 0" rpy="0 0 ${PI/2}" />
+    </xacro:right_arm>
+    <!-- Right Arm Flange: TODO@Herman Ye -->
+    <!-- Suction Cup Flange: TODO@Herman Ye-->
+    <xacro:suction_cup parent="right_arm_end_effector_mount_link">
+        <origin xyz="0 0 0" rpy="${-PI/2} ${PI} 0" />
+    </xacro:suction_cup>
+
+</robot>
+ 

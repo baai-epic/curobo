@@ -1,0 +1,293 @@
+robot_cfg:
+  kinematics:
+    use_usd_kinematics: False
+    usd_path: "robot/galbot_zero_mecanum/galbot_zero_mecanum.usd"
+    usd_robot_root: "/galbot_zero_mecanum"
+    # usd_flip_joints: {"joint1": "Z", "joint2": "Z", "joint3": "Z", "joint4": "Z", "joint5": "Z", "joint6": "Z", "joint7": "Z"}
+    isaac_usd_path: ""
+    usd_flip_joint_limits: [ ]
+
+    urdf_path: "robot/galbot_zero_mecanum/galbot_zero_mecanum.urdf"
+    asset_root_path: "robot/galbot_zero_mecanum"
+
+    # base_link: "left_arm_base_link"
+    base_link: "robot_base_link"
+    ee_link: "gripper_tcp_frame"
+
+    link_names: null
+    lock_joints: {"torso_lift_joint": 0.45}
+    # lock_joints: { }
+
+    extra_links: {"attached_object":{"parent_link_name": "gripper_tcp_frame" , 
+    "link_name": "attached_object", "fixed_transform": [0,0,0,1,0,0,0], "joint_type":"FIXED",
+    "joint_name": "attach_joint" }} 
+
+    collision_link_names: [
+      "mecanum_chassis_base_link", 
+      "torso_base_link",
+      "torso_lift_link",
+      "head_motor_pitch_link", 
+      "left_arm_base_link", 
+      "left_arm_link1", 
+      "left_arm_link2", 
+      "left_arm_link3", 
+      "left_arm_link4", 
+      "left_arm_link5", 
+      "left_arm_link6",
+      "left_arm_end_effector_flange_link",
+      "gripper_base_link",
+      "gripper_left_link", 
+      "gripper_right_link",
+      "attached_object"
+    ]
+
+    collision_spheres:
+      mecanum_chassis_base_link:
+        - "center": [0.21, 0.27, 0.09]
+          "radius": 0.1
+        # - "center": [-0.21, 0.27, 0.09]
+        #   "radius": 0.1
+        # - "center": [-0.21, -0.27, 0.09]
+        #   "radius": 0.1
+        - "center": [0.21, -0.27, 0.09]
+          "radius": 0.1
+        - "center": [0.2, 0.12, 0.18]
+          "radius": 0.1
+        - "center": [0.2, -0.12, 0.18]
+          "radius": 0.1
+        - "center": [0.18, 0.0, 0.3]
+          "radius": 0.05
+      torso_base_link:
+        # - "center": [0.05, 0.05, 0.05]
+        #   "radius": 0.06
+        - "center": [0.05, 0.05, 0.95]
+          "radius": 0.06
+        # - "center": [0.05, 0.05, 0.132]
+        #   "radius": 0.06
+        - "center": [0.05, 0.05, 0.214]
+          "radius": 0.06
+        # - "center": [0.05, 0.05, 0.295]
+        #   "radius": 0.06
+        - "center": [0.05, 0.05, 0.377]
+          "radius": 0.06
+        # - "center": [0.05, 0.05, 0.459]
+        #   "radius": 0.06
+        - "center": [0.05, 0.05, 0.541]
+          "radius": 0.06
+        # - "center": [0.05, 0.05, 0.623]
+        #   "radius": 0.06
+        - "center": [0.05, 0.05, 0.705]
+          "radius": 0.06
+        # - "center": [0.05, 0.05, 0.786]
+        #   "radius": 0.06
+        - "center": [0.05, 0.05, 0.868]
+          "radius": 0.06
+        # - "center": [0.05, -0.05, 0.95]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.05]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.868]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.786]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.705]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.623]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.541]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.459]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.377]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.295]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.214]
+        #   "radius": 0.06
+        # - "center": [0.05, -0.05, 0.132]
+        #   "radius": 0.06
+      torso_lift_link:
+        - "center": [0.15, 0.0, 0.15]
+          "radius": 0.1
+      head_motor_pitch_link:
+        - "center": [0.04, 0.015, -0.035]
+          "radius": 0.14
+      left_arm_base_link:
+        - "center": [0.0, 0.0, 0.12]
+          "radius": 0.054
+      left_arm_link1:
+        - "center": [0.0, 0.0, -0.04]
+          "radius": 0.05
+      left_arm_link2:
+        - "center": [-0.0, 0.011, -0.007]
+          "radius": 0.05
+        - "center": [0.0, 0.0, 0.079]
+          "radius": 0.04
+        - "center": [0.0, 0.0, 0.127]
+          "radius": 0.04
+      left_arm_link3:
+        - "center": [0.0, 0.004, 0.015]
+          "radius": 0.04
+        - "center": [-0.0, -0.0, -0.044]
+          "radius": 0.04
+      left_arm_link4:
+        - "center": [0.001, 0.004, 0.085]
+          "radius": 0.04
+      left_arm_link5:
+        - "center": [-0.001, 0.0, -0.027]
+          "radius": 0.04
+      left_arm_link6:
+        - "center": [0.0, 0.027, -0.0]
+          "radius": 0.035
+        - "center": [0.001, -0.0, 0.063]
+          "radius": 0.035
+        - "center": [0.001, -0.0, 0.101]
+          "radius": 0.035
+      gripper_base_link:
+        - "center": [0.0, 0.0, 0.024]
+          "radius": 0.035
+      gripper_left_link:
+        - "center": [0.01, -0.002, 0.0]
+          "radius": 0.02
+        - "center": [0.05, -0.002, 0.0]
+          "radius": 0.02
+      gripper_right_link:
+        - "center": [0.005, 0.009, -0.012]
+          "radius": 0.02
+        - "center": [0.045, 0.009, -0.012]
+          "radius": 0.02
+      left_arm_end_effector_flange_link:
+        - "center": [0.106, 0.0, 0.05]
+          "radius": 0.015
+        - "center": [0.106, 0.0, -0.05]
+          "radius": 0.015
+        # - "center": [0.106, 0.0, 0.025]
+        #   "radius": 0.015
+        # - "center": [0.106, 0.0, 0.0]
+        #   "radius": 0.015
+        # - "center": [0.106, 0.0, -0.025]
+        #   "radius": 0.015
+        # - "center": [0.0, 0.0, -0.05]
+        #   "radius": 0.015
+        # - "center": [0.0, 0.0, 0.05]
+        #   "radius": 0.015
+        # - "center": [0.08, 0.0, 0.05]
+        #   "radius": 0.015
+        # - "center": [0.053, 0.0, 0.05]
+        #   "radius": 0.015
+        # - "center": [0.027, 0.0, 0.05]
+        #   "radius": 0.015
+        # - "center": [0.026, 0.0, -0.05]
+        #   "radius": 0.015
+        # - "center": [0.053, 0.0, -0.05]
+        #   "radius": 0.015
+        # - "center": [0.08, 0.0, -0.05]
+        #   "radius": 0.015
+
+    collision_sphere_buffer: 0
+    extra_collision_spheres: {"attached_object": 60}
+    self_collision_ignore: {
+      "mecanum_chassis_base_link": ["torso_base_link", "torso_lift_link", "head_motor_pitch_link", "left_arm_base_link"],
+      "torso_base_link": ["mecanum_chassis_base_link", "torso_lift_link", "head_motor_pitch_link", "left_arm_base_link"],
+      "torso_lift_link": ["mecanum_chassis_base_link", "torso_base_link", "head_motor_pitch_link", "left_arm_base_link"],     
+      "head_motor_pitch_link": ["mecanum_chassis_base_link", "torso_base_link", "left_arm_base_link"],
+      "left_arm_base_link": ["left_arm_end_effector_flange_link", "mecanum_chassis_base_link", "torso_base_link", "head_motor_pitch_link", "left_arm_link1"],
+      "left_arm_link1": ["left_arm_base_link", "left_arm_link2"],
+      "left_arm_link2": ["left_arm_link1", "left_arm_link3"],
+      "left_arm_link3": ["left_arm_link2", "left_arm_link4"],
+      "left_arm_link4": ["left_arm_link3", "left_arm_link5", "gripper_base_link","gripper_left_link","gripper_right_link"],
+      "left_arm_link5": ["left_arm_link4", "left_arm_link6", "gripper_base_link","gripper_left_link","gripper_right_link"],
+      "left_arm_link6": ["left_arm_end_effector_flange_link", "left_arm_link5", "gripper_base_link","gripper_left_link","gripper_right_link"],
+      "left_arm_end_effector_flange_link": ["left_arm_base_link", "left_arm_link6", "gripper_base_link","gripper_left_link","gripper_right_link"],
+      "gripper_base_link": ["left_arm_end_effector_flange_link", "left_arm_link4", "left_arm_link5", "left_arm_link6", "gripper_left_link", "gripper_right_link"],
+      "gripper_left_link": ["left_arm_end_effector_flange_link", "left_arm_link4", "left_arm_link5", "left_arm_link6", "gripper_base_link", "gripper_right_link"],
+      "gripper_right_link": ["left_arm_end_effector_flange_link", "left_arm_link4", "left_arm_link5", "left_arm_link6", "gripper_base_link", "gripper_left_link"],
+      "attached_object": ["left_arm_end_effector_flange_link", "left_arm_link6", "gripper_base_link","gripper_left_link","gripper_right_link"]
+       }
+
+    self_collision_buffer: {
+      "mecanum_chassis_base_link": 0.0,
+      "torso_base_link": 0.0,
+      "torso_lift_link": 0.0,
+      "head_motor_pitch_link": 0.0, 
+      "left_arm_base_link": 0.0, 
+      "left_arm_link1": 0.0, 
+      "left_arm_link2": 0.0, 
+      "left_arm_link3": 0.0, 
+      "left_arm_link4": 0.0, 
+      "left_arm_link5": 0.0, 
+      "left_arm_link6": 0.0,
+      "left_arm_end_effector_flange_link": 0.0,
+      "gripper_base_link": 0.0,
+      "gripper_left_link": 0.0, 
+      "gripper_right_link": 0.0,
+      "attached_object": 0.0
+    }
+
+    use_global_cumul: True
+    mesh_link_names: [
+      "mecanum_chassis_base_link", 
+      "torso_base_link",
+      "torso_lift_link",
+      "torso_lift_link",
+      "head_base_link",
+      "head_motor_pitch_link",
+      "head_motor_yaw_link",
+      "head_front_mount_link",
+      "left_arm_base_link", 
+      "left_arm_link1", 
+      "left_arm_link2", 
+      "left_arm_link3", 
+      "left_arm_link4", 
+      "left_arm_link5", 
+      "left_arm_link6",
+      "left_arm_link7",
+      "left_arm_end_effector_flange_link",
+      "gripper_inspire_flange_link",
+      "gripper_base_link",
+      "gripper_left_link", 
+      "gripper_right_link",
+      "right_arm_base_link", 
+      "right_arm_link1", 
+      "right_arm_link2", 
+      "right_arm_link3", 
+      "right_arm_link4", 
+      "right_arm_link5", 
+      "right_arm_link6",
+      "right_arm_link7",
+      "right_arm_end_effector_flange_link",
+      "suction_cup_base_link",
+      "suction_cup_tcp_link",
+      "attached_object"
+    ]
+
+    cspace:
+      joint_names: [
+        "left_arm_joint1",
+        "left_arm_joint2", 
+        "left_arm_joint3", 
+        "left_arm_joint4", 
+        "left_arm_joint5", 
+        "left_arm_joint6", 
+        "left_arm_joint7",
+        # "torso_lift_joint",
+      ]
+      retract_config: [
+        # -0.20, 0.50, -0.1, 1.5, 1.5, 0.3, 0.4
+        # 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.507
+        -0.388, 1.048, 1.011, 1.572, -2.925, -1.528, 0.015
+        # 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+      ]
+      null_space_weight: [
+        1, 1, 1, 1, 1, 1, 1
+        # 1, 1, 1, 1, 1, 1, 1, 1
+      ]
+      cspace_distance_weight: [
+        1, 1, 1, 1, 1, 1, 1
+        # 1, 1, 1, 1, 1, 1, 1, 1
+      ]
+      max_jerk: 500.0
+      max_acceleration: 15.0
+      # jerk_scale: 1.0
+      # acceleration_scale: 0.7
+
